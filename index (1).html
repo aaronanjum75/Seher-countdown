@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8e8ed">
+  <title>Our Story — You & Seher</title>
+  <style>
+    :root {
+      --site-primary: #c85d83;
+      --site-on-primary: #ffffff;
+      --site-secondary: #f2cbd7;
+      --site-on-secondary: #56263a;
+      --site-background: #fff7f8;
+      --site-on-background: #492b36;
+      --site-font-body: ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+      --site-font-heading: Georgia, "Times New Roman", serif;
+      --site-heading-scale: 1;
+      --site-spacing-scale: 1;
+      --site-radius-scale: 1;
+      --site-decoration-opacity: 1;
+      color-scheme: light dark;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--site-on-background); }
+    #app {
+      min-height: 100vh;
+      width: 100%;
+      border-radius: 0;
+      background-color: light-dark(var(--site-background), #21151b);
+      color: light-dark(var(--site-on-background), #f9eaf0);
+      display: grid;
+      place-items: center;
+      padding: calc(30px * var(--site-spacing-scale)) 18px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .glow { position: absolute; z-index: -1; width: 340px; height: 340px; border-radius: 50%; filter: blur(3px); opacity: calc(.5 * var(--site-decoration-opacity)); background: var(--site-secondary); }
+    .glow.one { top: -190px; left: -120px; }
+    .glow.two { bottom: -210px; right: -120px; width: 420px; height: 420px; }
+    .wrap { width: min(100%, 760px); text-align: center; }
+    .eyebrow { letter-spacing: .24em; text-transform: uppercase; font-size: 11px; font-weight: 700; color: var(--site-primary); }
+    h1 { font-family: var(--site-font-heading); font-size: clamp(42px, 9vw, calc(76px * var(--site-heading-scale))); line-height: 1.02; font-weight: 400; margin: 18px 0 10px; }
+    .subtitle { font-size: 15px; opacity: .76; margin: 0 auto; max-width: 470px; line-height: 1.7; }
+    .heart { color: var(--site-primary); display: inline-block; animation: pulse 1.8s ease-in-out infinite; }
+    @keyframes pulse { 50% { transform: scale(1.16); } }
+    .since { margin: 34px auto 18px; padding: 11px 17px; display: inline-block; border: 1px solid color-mix(in srgb, var(--site-primary), transparent 65%); border-radius: 999px; font-size: 12px; letter-spacing: .04em; }
+    .since strong { color: var(--site-primary); font-weight: 700; }
+    .calendar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 12px 0; }
+    .unit { background: light-dark(#ffffff, #33232b); border: 1px solid light-dark(#f0d8e0, #553746); border-radius: calc(20px * var(--site-radius-scale)); padding: 22px 8px 18px; box-shadow: 0 12px 34px #8c496018; }
+    .num { display: block; font-family: var(--site-font-heading); font-variant-numeric: tabular-nums; font-size: clamp(34px, 7vw, 54px); line-height: 1.05; color: var(--site-primary); }
+    .unit span:last-child { display: block; margin-top: 9px; text-transform: uppercase; letter-spacing: .16em; font-size: 10px; opacity: .7; }
+    .total { margin: 26px auto 0; padding: 22px; border-radius: calc(24px * var(--site-radius-scale)); background: var(--site-secondary); color: var(--site-on-secondary); }
+    .total-label { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; opacity: .8; }
+    .total-days { font-family: var(--site-font-heading); font-size: clamp(36px, 8vw, 58px); margin: 6px 0 2px; font-variant-numeric: tabular-nums; }
+    .total-small { font-size: 13px; opacity: .8; font-variant-numeric: tabular-nums; }
+    .quote { font-family: var(--site-font-heading); font-style: italic; font-size: clamp(17px, 3vw, 21px); line-height: 1.6; margin: 32px auto 10px; max-width: 560px; }
+    .footer { margin-top: 25px; font-size: 11px; opacity: .55; letter-spacing: .06em; }
+    .actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+    button { border: 0; cursor: pointer; border-radius: 999px; padding: 12px 18px; font: 600 13px var(--site-font-body); background: var(--site-primary); color: var(--site-on-primary); }
+    button.secondary { background: transparent; color: var(--site-primary); border: 1px solid var(--site-primary); }
+    button:focus-visible { outline: 3px solid var(--site-primary); outline-offset: 3px; }
+    @media (max-width: 520px) { .calendar { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .unit { padding: 19px 6px 15px; } .since { margin-top: 26px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <main id="app">
+    <div class="glow one" aria-hidden="true"></div>
+    <div class="glow two" aria-hidden="true"></div>
+    <section class="wrap" aria-label="Our relationship countdown">
+      <div class="eyebrow">A little forever in the making</div>
+      <h1>You &amp; Seher <span class="heart">♥</span></h1>
+      <p class="subtitle">Every second since our first conversation has become a little piece of our story.</p>
+      <div class="since">OUR STORY BEGAN · <strong>26 AUGUST 2025 · 7:00 PM</strong></div>
+      <div class="calendar" aria-live="off">
+        <div class="unit"><span class="num" id="years">0</span><span>Years</span></div>
+        <div class="unit"><span class="num" id="months">0</span><span>Months</span></div>
+        <div class="unit"><span class="num" id="days">0</span><span>Days</span></div>
+        <div class="unit"><span class="num" id="hours">00</span><span>Hours</span></div>
+        <div class="unit"><span class="num" id="minutes">00</span><span>Minutes</span></div>
+        <div class="unit"><span class="num" id="seconds">00</span><span>Seconds</span></div>
+      </div>
+      <div class="total">
+        <div class="total-label">Time we've shared</div>
+        <div class="total-days" id="totalDays">0 days</div>
+        <div class="total-small" id="totalClock">00 hours · 00 minutes · 00 seconds</div>
+      </div>
+      <p class="quote">“It started with a conversation, but I hope it ends with forever.”</p>
+      <div class="heart" aria-hidden="true">♡ &nbsp; ♡ &nbsp; ♡</div>
+      <div class="actions">
+        <button id="share">Share our countdown</button>
+        <button class="secondary" id="copy">Copy our special date</button>
+      </div>
+      <div class="footer">MADE WITH LOVE · AND COUNTING</div>
+    </section>
+  </main>
+  <script>
+    const start = new Date('2025-08-26T19:00:00+05:00');
+    const $ = (id) => document.getElementById(id);
+    const pad = (n) => String(n).padStart(2, '0');
+    function calendarDiff(from, to) {
+      let years = to.getFullYear() - from.getFullYear();
+      let anchor = new Date(from);
+      anchor.setFullYear(from.getFullYear() + years);
+      if (anchor > to) { years--; anchor = new Date(from); anchor.setFullYear(from.getFullYear() + years); }
+      let months = (to.getFullYear() - anchor.getFullYear()) * 12 + to.getMonth() - anchor.getMonth();
+      let monthAnchor = new Date(anchor);
+      monthAnchor.setMonth(anchor.getMonth() + months);
+      if (monthAnchor > to) { months--; monthAnchor = new Date(anchor); monthAnchor.setMonth(anchor.getMonth() + months); }
+      let rest = to - monthAnchor;
+      const days = Math.floor(rest / 86400000); rest -= days * 86400000;
+      const hours = Math.floor(rest / 3600000); rest -= hours * 3600000;
+      const minutes = Math.floor(rest / 60000); rest -= minutes * 60000;
+      const seconds = Math.floor(rest / 1000);
+      return { years, months, days, hours, minutes, seconds };
+    }
+    function update() {
+      const now = new Date();
+      const elapsed = Math.max(0, now - start);
+      const d = calendarDiff(start, now);
+      $('years').textContent = d.years;
+      $('months').textContent = d.months;
+      $('days').textContent = d.days;
+      $('hours').textContent = pad(d.hours);
+      $('minutes').textContent = pad(d.minutes);
+      $('seconds').textContent = pad(d.seconds);
+      const totalSeconds = Math.floor(elapsed / 1000);
+      const totalDays = Math.floor(totalSeconds / 86400);
+      const remainder = totalSeconds % 86400;
+      $('totalDays').textContent = totalDays.toLocaleString() + (totalDays === 1 ? ' day' : ' days');
+      $('totalClock').textContent = `${pad(Math.floor(remainder / 3600))} hours · ${pad(Math.floor((remainder % 3600) / 60))} minutes · ${pad(remainder % 60)} seconds`;
+    }
+    update();
+    setInterval(update, 1000);
+    $('share').addEventListener('click', async () => {
+      const shareData = { title: 'You & Seher — Our Story', text: 'Our story began on 26 August 2025 at 7:00 PM. Every second since then has been ours. ♥' };
+      if (navigator.share) { try { await navigator.share(shareData); } catch (e) {} }
+      else { await navigator.clipboard.writeText(shareData.text); $('share').textContent = 'Copied! ♥'; }
+    });
+    $('copy').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText('26 August 2025 · 7:00 PM — the beginning of us. ♥'); $('copy').textContent = 'Copied! ♥'; }
+      catch (e) { $('copy').textContent = '26 Aug 2025 · 7 PM'; }
+    });
+  </script>
+</body>
+</html>
